@@ -5,6 +5,7 @@ import Login from './components/Login.vue';
 import Facturacion from './components/Facturacion.vue';
 import { createStore } from 'vuex';
 import { createApp } from 'nativescript-vue';
+import { FirebaseMessaging } from '@nativescript/firebase-messaging';
 
 const store = createStore({
     state: {
@@ -52,5 +53,9 @@ const store = createStore({
         }
     }
 });
+
+FirebaseMessaging.init().then(() => {
+    console.log("Firebase Messaging Initialized");
+}).catch(err => console.log("Firebase Init Error: ", err));
 
 createApp(Login).use(store).start();
