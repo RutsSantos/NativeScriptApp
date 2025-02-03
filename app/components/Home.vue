@@ -19,7 +19,7 @@
   export default {
     computed: {
       message() {
-        return "Blank {N}-Vue app";
+        return "Rut's App";
       }
     }
   };
