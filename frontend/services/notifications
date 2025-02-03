@@ -1,0 +1,28 @@
+import { firebase } from "@nativescript/firebase-core";
+import { Messaging } from "@nativescript/firebase-messaging";
+
+export function registerPushNotifications() {
+    firebase().initializeApp()
+        .then(() => {
+            console.log("Firebase iniciado");
+
+            // Obtener una instancia de messaging
+            const messagingInstance = new Messaging();
+
+            // Registra el callback para recibir el token FCM
+            messagingInstance.getToken()
+                .then((token) => {
+                    console.log("Token FCM:", token);
+                })
+                .catch((error) => {
+                    console.error("Error al obtener el token:", error);
+                });
+
+            // Registra el callback para recibir mensajes en primer plano
+            messagingInstance.onMessage((message) => {
+                console.log("Mensaje recibido:", message);
+            });
+
+        })
+        .catch((error) => console.error("Error Firebase:", error));
+}

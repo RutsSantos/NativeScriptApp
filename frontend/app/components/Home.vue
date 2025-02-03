@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <Page>
         <ActionBar>
             <Label text="Home"/>
@@ -38,4 +38,32 @@
         horizontal-align: center;
         vertical-align: center;
     }
-</style>
+</style> -->
+
+
+
+<template>
+    <Page>
+        <ActionBar title="Inicio" />
+        <StackLayout>
+            <Label text="Bienvenido a la App" />
+            <Button text="Ir a Facturación" @tap="goToFacturacion" />
+            <Button text="Ver Notificaciones" @tap="goToNotificaciones" />
+        </StackLayout>
+    </Page>
+</template>
+
+<script>
+import { navigateTo } from "@/services/navigation";
+
+export default {
+    methods: {
+        goToFacturacion() {
+            navigateTo("Facturacion");
+        },
+        goToNotificaciones() {
+            navigateTo("Notificaciones");
+        },
+    },
+};
+</script>

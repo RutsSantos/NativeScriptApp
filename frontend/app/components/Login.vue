@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <Page>
         <ActionBar title="Login" />
         <StackLayout>
@@ -25,5 +25,40 @@ export default {
             this.$navigateTo(require('./Home.vue'));
         }
     }
+};
+</script> -->
+
+
+
+<template>
+    <Page>
+        <ActionBar title="Login" />
+        <StackLayout>
+            <TextField v-model="email" hint="Correo electrónico" />
+            <TextField v-model="password" hint="Contraseña" secure="true" />
+            <Button text="Iniciar sesión" @tap="login" />
+        </StackLayout>
+    </Page>
+</template>
+
+<script>
+import { navigateTo } from "@/services/navigation";
+
+export default {
+    data() {
+        return {
+            email: "",
+            password: "",
+        };
+    },
+    methods: {
+        login() {
+            if (this.email && this.password) {
+                navigateTo("Home");
+            } else {
+                alert("Por favor, ingrese sus credenciales.");
+            }
+        },
+    },
 };
 </script>
