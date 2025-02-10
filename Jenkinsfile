@@ -52,6 +52,26 @@ pipeline {
             }
         }
 
+
+        stage (nexusArtifactUploader){
+
+            nexusVersion: 'nexus3',
+            protocol: 'http',
+            nexusUrl: 'localhost:8081',
+            groupId: 'com.example',
+            version: version,
+            repository: 'NativeScriptApp',
+            credentialsId: 'CredentialsId',
+            artifacts: [
+                [artifactId: 'NativeScriptApp',
+                classifier: '',
+                file: 'my-service-' + version + '.jar',
+                type: 'jar']
+                ]
+        }
+        
+     )
+
         stage('Build Docker Image') {
             when {
                 branch 'main'
