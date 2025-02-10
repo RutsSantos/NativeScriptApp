@@ -1,6 +1,6 @@
 # 📌 Proyecto: Aplicación Móvil con FastAPI y NativeScript Vue
 
-Este proyecto consiste en una **aplicación móvil desarrollada con NativeScript Vue** y un **backend en FastAPI** que maneja tareas en paralelo, envía notificaciones push y está dockerizado para su despliegue en la nube.
+Este proyecto consiste en una **aplicación móvil desarrollada con NativeScript Vue** y un **backend en FastAPI** que maneja tareas en paralelo, envía notificaciones push y está dockerizado para su despliegue en la nube y CI/CD con Jenkins y Nexus.
 
 ---
 
