@@ -70,7 +70,6 @@ pipeline {
                 ]
         }
         
-     )
 
         stage('Build Docker Image') {
             when {
@@ -94,4 +93,9 @@ pipeline {
                 withCredentials([string(credentialsId: 'docker-hub-cred', variable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo "$DOCKER_PASSWORD" | docker login -u usuario --password-stdin
-          
+                    '''
+                }
+            }
+        }    
+    }
+}      
